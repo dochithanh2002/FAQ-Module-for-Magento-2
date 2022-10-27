@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="breadcrumbs" template="Magento_Catalog::product/breadcrumbs.phtml">
+            <arguments>
+                <argument name="viewModel" xsi:type="object">Magento\Catalog\ViewModel\Product\Breadcrumbs</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceContainer name="sidebar.main">
+            <block class="Magento\Catalog\Block\Navigation" name="catalog.leftnav" before="-" template="Magento_Catalog::navigation/left.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="sidebar.additional">
+            <block class="Magestore\FAQ\Block\Category\CategorySidebar" name="product_view_custom_block" before="catalog.compare.sidebar" template="Magestore_FAQ::custom_sidebar.phtml"/>
+        </referenceContainer>
+        <referenceBlock name="content">
+            <block class="Magestore\FAQ\Block\Category\View" name="category" template="Magestore_FAQ::category.phtml">
+            </block>
+        </referenceBlock>
+    </body>
+</page>

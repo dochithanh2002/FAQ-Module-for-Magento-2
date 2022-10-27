@@ -1,0 +1,24 @@
+<?php
+/**
+ * @var \Magestore\FAQ\Block\Faq\Faq $block
+ */
+
+$categories = $block->getAllCategory();
+?>
+
+<link rel="stylesheet" type="text/css" href="<?php echo $block->getViewFileUrl('Magestore_FAQ::css/style.css')?>">
+<h3 style="color: dodgerblue">WELCOME TO OUR SUPPORT PORTAL</h3>
+<div class="wrapper">
+    <?php foreach ($categories as $category): ?>
+        <div class="category-itemm" style="width: 20%">
+            <a href=" <?php echo $this->getBaseurl() . 'faq/category/view/category_id/' . $category['category_id']?>" >
+                <button class="wrapper-item">
+                    <img src="<?php echo $this->getBaseurl() . 'media/category/tmp/images/' . $category['image'] ?>" alt="-Image-"/>
+                    <?= $category['name']; ?>
+                </button>
+
+            </a>
+
+        </div>
+    <?php endforeach; ?>
+</div>

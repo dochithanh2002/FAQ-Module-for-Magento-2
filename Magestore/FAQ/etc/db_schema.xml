@@ -1,0 +1,38 @@
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+
+    <table name="faq_category">
+        <column xsi:type="int" name="category_id" unsigned="true" nullable="false" identity="true"/>
+        <column xsi:type="varchar" name="name" length="255" nullable="false"/>
+        <column xsi:type="varchar" name="image" length="255"/>
+        <column xsi:type="boolean" name="status" nullable="false"/>
+        <column xsi:type="timestamp" name="created_at"/>
+        <column xsi:type="timestamp" name="updated_at"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="category_id"/>
+        </constraint>
+    </table>
+    <table name="faqs_detail">
+        <column xsi:type="int" name="faqs_id" unsigned="true" nullable="false" identity="true"/>
+        <column xsi:type="int" name="category_id" unsigned="true" nullable="false"/>
+        <column xsi:type="text" name="faqs_question" nullable="false"/>
+        <column xsi:type="text" name="faqs_answer" nullable="false"/>
+        <column xsi:type="int" name="view" unsigned="true" nullable="false"/>
+        <column xsi:type="int" name="like" unsigned="true" nullable="false"/>
+        <column xsi:type="int" name="dislike" unsigned="true" nullable="false"/>
+        <column xsi:type="boolean" name="status" nullable="false"/>
+        <column xsi:type="varchar" name="created_by" length="255" nullable="false"/>
+        <column xsi:type="int" name="sort_order" unsigned="true" nullable="false"/>
+        <column xsi:type="timestamp" name="created_at"/>
+        <column xsi:type="timestamp" name="updated_at"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="faqs_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="FAQS_DETAIL_CATEGORY_ID_FAQ_CATEGORY_CATEGORY_ID"
+                    table="faqs_detail" column="category_id" referenceTable="faq_category" referenceColumn="category_id"
+                    onDelete="CASCADE"/>
+    </table>
+
+
+</schema>

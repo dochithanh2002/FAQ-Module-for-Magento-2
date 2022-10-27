@@ -1,0 +1,21 @@
+
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getViewFileUrl('Magestore_FAQ::css/style.css')?>">
+<div class="faq-search-form">
+    <div class="content">
+        <form class="form"
+                      action="<?php echo $this->getBaseurl() . "faq/category/search/"; ?>"
+                      id="faq-search-form"
+                      method="get">
+        <div class="field">
+            <div class="control">
+                <input name="s" type="text" id="text-search" placeholder="<?php echo __('Search Frequently Asked Question'); ?>" data-validate="{required:true}" value="<?php echo $this->getTextSearch(); ?>">
+            </div>
+        </div>
+        <div class="actions">
+            <button class="action primary" title="<?php echo __('Search');?>" type="submit">
+                <span><?php echo __('Search');?></span>
+            </button>
+        </div>
+        </form>
+    </div>
+</div>

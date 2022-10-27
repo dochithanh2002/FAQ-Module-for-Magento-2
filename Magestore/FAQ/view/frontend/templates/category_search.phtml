@@ -1,0 +1,40 @@
+<?php
+/**
+ * @var \Magestore\FAQ\Block\Search\SearchForm $block
+ */
+$questions = $block->getDetail();
+
+?>
+
+<link rel="stylesheet" type="text/css" href="<?php echo $block->getViewFileUrl('Magestore_FAQ::css/style.css')?>">
+
+<h2>Result</h2>
+
+
+
+<?php foreach ($questions as $question): ?>
+    <button class="accordion"><?php echo $question['faqs_question'] ?></button>
+
+    <div class="panel">
+        <p><?php echo $question['faqs_answer'] ?></p>
+    </div>
+<?php endforeach; ?>
+
+
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+</script>

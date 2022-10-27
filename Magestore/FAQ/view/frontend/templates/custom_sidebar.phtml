@@ -1,0 +1,22 @@
+<?php
+/**
+ * @var \Magestore\FAQ\Block\Category\CategorySidebar $block
+ */
+
+$categories = $block->getAllCategory();
+
+?>
+
+<link rel="stylesheet" type="text/css" href="<?php echo $block->getViewFileUrl('Magestore_FAQ::css/style.css')?>">
+
+<div>
+    <?php foreach ($categories as $category): ?>
+        <div>
+            <a href=" <?php echo $this->getBaseurl() . 'faq/category/view/category_id/' . $category['category_id']?>" >
+                    <?php echo $category['name']; ?>
+                    <span>(<?php echo $category['number'];?>)</span>
+            </a>
+
+        </div>
+    <?php endforeach; ?>
+</div>
